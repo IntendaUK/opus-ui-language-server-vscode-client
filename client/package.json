@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "name": "opus_language_client_vscode_client",
+  "description": "Opus Language Client For VSCode",
+  "author": "Intenda",
+  "license": "MIT",
+  "main": "out/client.js",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.1"
+  },
+  "scripts": {
+    "compile": "tsc",
+    "dev": "tsc -w"
+  }
+}

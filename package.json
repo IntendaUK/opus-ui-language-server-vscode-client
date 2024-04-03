@@ -1,0 +1,67 @@
+{
+	"version": "1.0.0",
+	"name": "opus-language-client-vscode",
+	"displayName": "Opus UI Language Server",
+	"publisher": "Intenda",
+	"description": "Code IntelliSense and linter for Opus UI",
+	"author": "Intenda",
+	"license": "MIT",
+	"categories": [
+		"Programming Languages",
+		"Linters",
+		"Other"
+	],
+	"keywords": [
+		"opus"
+	],
+	"icon": "images/icon.png",
+	"galleryBanner": {
+		"color": "#191d23",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "^1.86.0"
+	},
+	"activationEvents": [
+		"onLanguage:json",
+		"onCommand:opusLanguageServer.reload",
+		"onCommand:opusLanguageServer.changeOpusUiEnsemblesPath"
+	],
+	"main": "./client/out/client",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Opus UI Language Server",
+			"properties": {
+				"opusLanguageServer.ensemblesPath": {
+					"scope": "window",
+					"type": "string",
+					"description": "The location of the Opus App ensembles (modules) folder on your machine.",
+					"order": 3
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "opusLanguageServer.changeOpusUiEnsemblesPath",
+				"title": "Opus UI Language Server: Change Opus UI Ensembles path"
+			},
+			{
+				"command": "opusLanguageServer.reload",
+				"title": "Opus UI Language Server: Reload Extension"
+			}
+		]
+	},
+	"scripts": {
+		"compile": "tsc -b",
+		"lint": "eslint ./client/src ./server/src --ext .ts,.tsx",
+		"postinstall": "cd client && npm install && cd ../server && npm install && cd .."
+	},
+	"devDependencies": {
+		"@types/node": "^18.14.6",
+		"@typescript-eslint/eslint-plugin": "^6.14.0",
+		"@typescript-eslint/parser": "^6.14.0",
+		"eslint": "^8.56.0",
+		"typescript": "^5.3.3"
+	}
+}
