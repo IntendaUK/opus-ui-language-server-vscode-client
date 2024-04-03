@@ -5,6 +5,10 @@
 	"publisher": "Intenda",
 	"description": "Code IntelliSense and linter for Opus UI",
 	"author": "Intenda",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/IntendaUK/opus-ui-language-server-vscode-client"
+	},
 	"license": "MIT",
 	"categories": [
 		"Programming Languages",
