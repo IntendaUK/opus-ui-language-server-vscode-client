@@ -53,6 +53,7 @@
 		]
 	},
 	"scripts": {
+		"dev": "cd client && tsc -w",
 		"compile": "tsc -b",
 		"lint": "eslint ./client/src ./server/src --ext .ts,.tsx",
 		"postinstall": "cd client && npm install && cd ../server && npm install && cd .."

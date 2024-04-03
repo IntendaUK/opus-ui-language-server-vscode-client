@@ -13,9 +13,5 @@
   },
   "devDependencies": {
     "@types/vscode": "^1.75.1"
-  },
-  "scripts": {
-    "compile": "tsc",
-    "dev": "tsc -w"
   }
 }
