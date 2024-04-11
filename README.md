@@ -66,7 +66,7 @@ A mandatory configuration object specifying the dependencies to be installed int
 
 ### opusUiComponentLibraries
 
-A list of Opus UI component libraries which tells the language server which component libraries to load and support.
+A list of paths (relative from the node_modules folder) which tells the language server which component libraries to load and support.
 
 ```json
 "opusUiComponentLibraries": [
@@ -80,15 +80,18 @@ A list of Opus UI component libraries which tells the language server which comp
 
 ### opusUiEnsembles
 
-A list of Opus UI ensembles which tells the language server which ensembles to load and support. Note, this list can include a strings and/or objects.
-- When a string is specified, the language server will fetch the ensemble directly from the installed ensemble inside the node_modules folder
-- When the object syntax is used, the language server will fetch the ensemble from the "path" value inside the object. This allows for working on external ensembles which are not installed into the project, alongside internal ones
+A list of entries which tells the language server which ensembles to load and support. Note, this list can include a strings and/or objects.
+- Each entry can be a string path or an object with the "path" key and optionally the "external" key. When external is falsy, ensembles will be loaded from the root of the node_modules folder. When true, an absolute path must be supplied. This allows for working on external ensembles which are not installed into the project, alongside internal ones.
 
 ```json
 "opusUiEnsembles": [
     "l2_buttons",
-    "l2_grid",
+	{
+	    "path": "l2_grid"
+	},
     {
+        "external": true,
+        "name": "l2_inputs"
         "path": "/Users/Santino/Code/Intenda/low_code/opus-apps/mda_ensembles/l2_inputs"
     }
 ]
