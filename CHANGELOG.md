@@ -2,6 +2,9 @@
 
 All notable changes to the "Opus UI Language Server" extension will be documented in this file.
 
+### 2.2.0
+* Added functionality to allow external component libraries to import shared props from the Opus UI components folder.
+
 ### 2.1.0
 * Fixed a pathing issue on windows machines preventing the language server from running.
 

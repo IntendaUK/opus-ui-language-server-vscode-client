@@ -1,5 +1,5 @@
 {
-	"version": "2.1.0",
+	"version": "2.2.0",
 	"name": "opus-language-client-vscode",
 	"displayName": "Opus UI Language Server",
 	"publisher": "Intenda",
@@ -28,28 +28,11 @@
 	},
 	"activationEvents": [
 		"onLanguage:json",
-		"onCommand:opusLanguageServer.reload",
-		"onCommand:opusLanguageServer.changeOpusUiEnsemblesPath"
+		"onCommand:opusLanguageServer.reload"
 	],
 	"main": "./client/out/client",
 	"contributes": {
-		"configuration": {
-			"type": "object",
-			"title": "Opus UI Language Server",
-			"properties": {
-				"opusLanguageServer.ensemblesPath": {
-					"scope": "window",
-					"type": "string",
-					"description": "The location of the Opus App ensembles (modules) folder on your machine.",
-					"order": 3
-				}
-			}
-		},
 		"commands": [
-			{
-				"command": "opusLanguageServer.changeOpusUiEnsemblesPath",
-				"title": "Opus UI Language Server: Change Opus UI Ensembles path"
-			},
 			{
 				"command": "opusLanguageServer.reload",
 				"title": "Opus UI Language Server: Reload Extension"
