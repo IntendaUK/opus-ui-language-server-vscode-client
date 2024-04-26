@@ -9,7 +9,6 @@
 - **[Installation](#installation)**
 - **[Opus UI Configuration](#installation)**
 
-
 ---
 
 ## Features
@@ -20,8 +19,10 @@
 - **[Solutions and hints](#solutions-and-hints)**: Get solutions to issues or hints where relevant to enhance your dev experience
 - **[Seamless Opus UI app switching](#opus-ui-app-switching)**: Work on multiple Opus UI applications and seamlessly switch between them without reloading
 
-### Suggestions
-![Demo](https://github.com/IntendaUK/opus-ui-language-server-vscode-client/blob/main/images/componentPrps.gif?raw=true)
+---
+
+## Showcase
+![showcase](https://github.com/IntendaUK/opus-ui-language-server-vscode-client/blob/main/images/componentPrps.gif?raw=true)
 
 ---
 
