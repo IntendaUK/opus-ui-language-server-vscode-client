@@ -1,4 +1,4 @@
-# Opus UI Language Server
+# Opus UI Language Server VSCode Client
 
 #### Code IntelliSense and linter for use when writing Opus UI application JSON files
 
@@ -9,6 +9,7 @@
 - **[Installation](#installation)**
 - **[Opus UI Configuration](#installation)**
 
+
 ---
 
 ## Features
@@ -18,6 +19,9 @@
 - **[Linting](#linting)**: Catch common errors and potential issues in your Opus UI codebase
 - **[Solutions and hints](#solutions-and-hints)**: Get solutions to issues or hints where relevant to enhance your dev experience
 - **[Seamless Opus UI app switching](#opus-ui-app-switching)**: Work on multiple Opus UI applications and seamlessly switch between them without reloading
+
+### Suggestions
+![Demo](https://github.com/IntendaUK/opus-ui-language-server-vscode-client/blob/main/images/componentPrps.gif?raw=true)
 
 ---
 
@@ -96,7 +100,7 @@ A list of entries which tells the language server which ensembles to load and su
     },
     {
         "external": true,
-        "name": "l2_inputs"
+        "name": "l2_inputs",
         "path": "/Users/Santino/Code/Intenda/low_code/opus-apps/mda_ensembles/l2_inputs"
     }
 ]
@@ -118,7 +122,7 @@ A list of entries which tells the language server which ensembles to load and su
 
 ### Why do random suggestions which are not part of the language server show?
 
-VSCode has a built-in extension which runs in the background alongside the language server called "JSON Language Features". It provides (context unaware) suggestions which are shown alongside the suggestions provided by the Opus UI Language Server. As the Opus UI Language Server provides context-aware suggestions, the "JSON Language Features" extension can be disabled. To disable it:
+VSCode has a built-in extension called "JSON Language Features" which runs in the background alongside the Opus UI Language Server. It provides (context unaware) suggestions which are shown alongside the suggestions provided by the Opus UI Language Server. As the Opus UI Language Server provides context-aware suggestions, the "JSON Language Features" extension can be disabled. To disable it:
 1. Click the three dots next to the refresh icon in the extensions panel
 2. In the context menu that appears, click "Show Running Extensions"
 3. Search for the "JSON Language Features" extension, right click and select "Disable (Workspace)"
