@@ -1,8 +1,12 @@
 # Opus UI Language Server VSCode Client
 
-#### Code IntelliSense and linter for use when writing Opus UI application JSON files
+#### Code IntelliSense and linter for use when building pure Opus UI applications via JSON files
 
 ---
+
+## Overview
+
+This is the VSCode Client counterpart to the [Opus UI Language Server](https://github.com/IntendaUK/opus-ui-language-server). A tool designed to aid developers when building pure [Opus UI](https://opus-ui.com) applications. It enables features such as auto-completion, syntax highlighting, and error checking amongst other language server features to streamline the development process.
 
 ## Index
 - **[Features](#features)**
@@ -30,11 +34,12 @@
 
 To install the Opus UI Language Server, follow these steps:
 1. Install the Opus UI Language Server Extension in the VSCode Extensions panel or from here: [Opus UI Language Server Extension](https://marketplace.visualstudio.com/items?itemName=Intenda.opus-language-client-vscode)
-2. Ensure your application's package.json includes the entries mentioned in [Opus UI package.json configuration](#opus-ui-packagejson-configuration)
+2. Ensure your application's package.json includes the entries mentioned in the [Application Setup](#pure-opus-ui-application-setup)
 
 ---
 
-## Opus UI package.json configuration
+## Pure Opus UI Application Setup
+The following should be added to your **package.json file**.
 
 ### opusPackagerConfig
 A mandatory configuration object used by the [opus-ui-packager](https://github.com/IntendaUK/opus-ui-packager) dependency specifying where to build Opus UI JSON.
