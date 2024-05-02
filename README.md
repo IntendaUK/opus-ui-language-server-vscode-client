@@ -8,6 +8,8 @@
 
 This is the VSCode Client counterpart to the [Opus UI Language Server](https://github.com/IntendaUK/opus-ui-language-server). A tool designed to aid developers when building pure [Opus UI](https://opus-ui.com) applications. It enables features such as auto-completion, syntax highlighting, and error checking amongst other language server features to streamline the development process.
 
+---
+
 ## Index
 - **[Features](#features)**
 - **[Installation](#installation)**
@@ -109,6 +111,19 @@ A list of entries which tells the language server which ensembles to load and su
         "name": "l2_inputs",
         "path": "/Users/Santino/Code/Intenda/low_code/opus-apps/mda_ensembles/l2_inputs"
     }
+]
+```
+---
+
+### opusUiColorThemes
+
+A list of theme file names that correspond to color theme files that exist inside the "theme" folder inside of app. This tells the language server which color themes to load and show color suggestions for.
+
+```json
+"opusUiColorThemes": [
+    "colors",
+    "colorsLight",
+    "colorsDark"
 ]
 ```
 ---

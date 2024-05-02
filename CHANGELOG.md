@@ -2,6 +2,9 @@
 
 All notable changes to the "Opus UI Language Server" extension will be documented in this file.
 
+### 2.3.0
+* Added functionality to show color suggestions loaded from opusUiColorThemes.
+
 ### 2.2.0
 * Added functionality to allow external component libraries to import shared props from the Opus UI components folder.
 
