@@ -2,6 +2,9 @@
 
 All notable changes to the "Opus UI Language Server" extension will be documented in this file.
 
+### 2.4.0
+* Added support for .opusUiConfig dotfile for custom overrides of opus-ui config entries.
+
 ### 2.3.0
 * Added functionality to show color suggestions loaded from opusUiColorThemes.
 

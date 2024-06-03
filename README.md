@@ -109,7 +109,7 @@ A list of entries which tells the language server which ensembles to load and su
     {
         "external": true,
         "name": "l2_inputs",
-        "path": "/Users/Santino/Code/Intenda/low_code/opus-apps/mda_ensembles/l2_inputs"
+        "path": "/Users/Jon/Code/opus-apps/ensembles/l2_inputs"
     }
 ]
 ```
