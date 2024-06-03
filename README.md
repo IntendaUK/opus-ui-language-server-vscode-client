@@ -10,13 +10,6 @@ This is the VSCode Client counterpart to the [Opus UI Language Server](https://g
 
 ---
 
-## Index
-- **[Features](#features)**
-- **[Installation](#installation)**
-- **[Opus UI Configuration](#installation)**
-
----
-
 ## Features
 
 - **[Suggestions](#suggestions)**: Receive intelligent suggestions for components, properties, traits, and more as you type
@@ -35,28 +28,15 @@ This is the VSCode Client counterpart to the [Opus UI Language Server](https://g
 ## Installation
 
 To install the Opus UI Language Server, follow these steps:
-1. Install the Opus UI Language Server Extension in the VSCode Extensions panel or from here: [Opus UI Language Server Extension](https://marketplace.visualstudio.com/items?itemName=Intenda.opus-language-client-vscode)
-2. Ensure your application's package.json includes the entries mentioned in the [Application Setup](#pure-opus-ui-application-setup)
+1. Install the Opus UI Language Server Extension in the VSCode Extensions panel or from here: [Opus UI Language Server Extension](https://marketplace.visualstudio.com/items?itemName=Intenda.opus-language-client-vscode).
+2. Ensure Opus UI related dependencies are added to [dependencies](#opus-ui-dependencies) inside your project's package.json file and installed via "npm install".
+3. Add related [Opus UI Configuration](#opus-ui-configuration) properties.
 
 ---
 
-## Pure Opus UI Application Setup
-The following should be added to your **package.json file**.
+## Opus UI Dependencies
 
-### opusPackagerConfig
-A mandatory configuration object used by the [opus-ui-packager](https://github.com/IntendaUK/opus-ui-packager) dependency specifying where to build Opus UI JSON.
-
-```json
-"opusPackagerConfig": {
-    "appDir": "app",            // Where the Opus UI app exists relative to the root of your project
-    "packagedDir": "public",    // Where the built Opus UI application should be stored
-    "packagedFileName": "app"   // The name of the built app file
-}
-```
-
-### dependencies
-
-A mandatory configuration object specifying the dependencies to be installed into your project. This should include the **"opus-ui"** dependency itself, any Opus UI component libraries and any Opus UI ensembles.
+A mandatory configuration object specifying the dependencies to be installed into your project. This should include the "opus-ui" dependency itself, any Opus UI component libraries and any Opus UI ensembles.
 
 ```json
 "dependencies": {
@@ -82,6 +62,27 @@ A mandatory configuration object specifying the dependencies to be installed int
 ```
 ---
 
+## Opus UI Configuration
+
+The following Opus UI configuration properties should either be:
+  1. Added to directly to package.json
+  2. Added to the [opusUiConfig](#opusuiconfig) entry (in package.json)
+  3. Added to an external [Opus UI Configuration file](#opus-ui-configuration-file)
+  4. Added using a combination of the above three options
+     - **However** the order of precedence is important here. An entry inside the [Opus UI Configuration file](#opus-ui-configuration-file) will take first precedence followed entries inside [opusUiConfig](#5-opusuiconfig) and lastly, entries added directly to package.json
+     - E.g. if an "opusUiEnsembles" entry is added to a [Opus UI Configuration file](#opus-ui-configuration-file), it will overwrite the "opusUiEnsembles" entry inside [opusUiConfig](#5-opusuiconfig) and also an "opusUiEnsembles" entry that may be added directly to package.json
+
+### opusPackagerConfig
+A mandatory configuration object used by the [Opus UI Packager](https://github.com/IntendaUK/opus-ui-packager), specifying where to build Opus UI JSON.
+
+```json
+"opusPackagerConfig": {
+    "appDir": "app",            // Where the Opus UI app exists relative to the root of your project
+    "packagedDir": "public",    // Where the built Opus UI application should be stored
+    "packagedFileName": "app"   // The name of the built app file
+}
+```
+
 ### opusUiComponentLibraries
 
 A list of paths (relative to the node_modules folder) which tells the language server which component libraries to load and provide language server features for.
@@ -93,12 +94,10 @@ A list of paths (relative to the node_modules folder) which tells the language s
 ]
 ```
 
----
-
 ### opusUiEnsembles
 
 A list of entries which tells the language server which ensembles to load and support. Note, this list can include a strings and/or objects.
-- Each entry can be a string path or an object with the "path" key and *optionally* the "external" key. When external is falsy, ensembles will be loaded from the root of the node_modules folder. When true, an absolute path must be supplied. This allows for working on external ensembles which are not installed into the project, alongside internal ones.
+- Each entry can be a string path or an object with the "path" key and *optionally* the "external" key. When external is falsy, ensembles will be loaded from the root of the node_modules folder. When true, an absolute path must be supplied. This allows for working on external ensembles which are not installed into the project, alongside internal ones
 
 ```json
 "opusUiEnsembles": [
@@ -113,7 +112,6 @@ A list of entries which tells the language server which ensembles to load and su
     }
 ]
 ```
----
 
 ### opusUiColorThemes
 
@@ -128,10 +126,56 @@ A list of theme file names that correspond to color theme files that exist insid
 ```
 ---
 
+### opusUiConfig
+
+A configuration object used to configure various settings for [Opus UI](https://github.com/IntendaUK/opus-ui), the [Opus UI Packager](https://github.com/IntendaUK/opus-ui-packager) and the [Opus UI Language Server](https://github.com/IntendaUK/opus-ui-language-server).
+
+```json
+"opusUiConfig": {
+    "opusPackagerConfig": {
+        "appDir": "app",            
+        "packagedDir": "public",    
+        "packagedFileName": "app"   
+    },
+    "opusUIEnsembles": [
+        "l2_buttons"    
+    ],
+    "externalOpusUiConfig": "/Users/Jon/.opusUiCustomConfiguration"
+}
+```
+
+---
+
+### Opus UI Configuration file
+
+An external Opus UI Configuration file which takes precedence over all other ways of setting Opus UI Configuration.
+- By default, both the [Opus UI Packager](https://github.com/IntendaUK/opus-ui-packager) and the [Opus UI Language Server](https://github.com/IntendaUK/opus-ui-language-server) will search for a ".opusUiConfig" file within the root of your Opus UI application. This path can be changed by adding a "externalOpusUiConfig" path to opusUiConfig above
+
+```json
+{
+     "opusPackagerConfig": {
+          "appDir": "app",
+          "packagedDir": "public",
+          "packagedFileName": "app"
+     },
+     "opusUiComponentLibraries": [
+          "@intenda/opus-ui-components",
+          "@intenda/opus-ui-drag-move"
+     ],
+     "opusUiEnsembles": [
+          "l2_buttons"
+     ],
+     "opusUiColorThemes": [
+          "colors",
+          "colorsDark"
+     ]
+}
+```
+
 ### Important notes
 
-- The language server is built to automatically rebuild when it detects a change to either "dependencies", "opusUiComponentLibraries" or "opusUiEnsembles".
-- The language server expects each entry included in "opusUiComponentLibraries" and "opusUiEnsembles" (except for external ensemble entries) to be installed using "npm install" so it can find the associated dependency inside of node_modules. If the language server cannot find the dependency, it will be ignored and features such as suggestions, linting, etc. for the associated components will not be shown.
+- The language server is built to automatically rebuild when it detects a change to either "dependencies", "opusUiComponentLibraries" or "opusUiEnsembles"
+- The language server expects each entry included in "opusUiComponentLibraries" and "opusUiEnsembles" (except for external ensemble entries) to be installed using "npm install" so it can find the associated dependency inside of node_modules. If the language server cannot find the dependency, it will be ignored and features such as suggestions, linting, etc. for the associated components will not be shown
 
 ---
 
