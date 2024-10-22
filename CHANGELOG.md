@@ -2,6 +2,9 @@
 
 All notable changes to the "Opus UI Language Server" extension will be documented in this file.
 
+### 3.0.0
+* Upgraded to support opus-ui v1.10.3.
+
 ### 2.5.0
 * Added support for opusUiColorThemes entry for opus-ui config entries.
 
