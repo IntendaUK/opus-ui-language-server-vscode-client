@@ -29,7 +29,7 @@ This is the VSCode Client counterpart to the [Opus UI Language Server](https://g
 
 To install the Opus UI Language Server, follow these steps:
 1. Install the Opus UI Language Server Extension in the VSCode Extensions panel or from here: [Opus UI Language Server Extension](https://marketplace.visualstudio.com/items?itemName=Intenda.opus-language-client-vscode).
-2. Ensure Opus UI related dependencies are added to [dependencies](#opus-ui-dependencies) inside your project's package.json file and installed via "npm install".
+2. Ensure Opus UI related dependencies are added to [dependencies or peerDependencies](#opus-ui-dependencies) inside your project's package.json file and installed via "npm install".
 3. Add related [Opus UI Configuration](#opus-ui-configuration) properties.
 
 ---
@@ -47,7 +47,6 @@ A mandatory configuration object specifying the dependencies to be installed int
     "@intenda/opus-ui": "^1.1.4",
     "@intenda/opus-ui-code-editor": "^1.0.0",
     "@intenda/opus-ui-components": "^1.0.0",
-    "@intenda/opus-ui-drag-move": "^1.0.0",
     "@intenda/opus-ui-expo-interface": "^1.0.1",
     "@intenda/opus-ui-grid": "^1.0.1",
     "@intenda/opus-ui-json-builder": "^1.0.0",
@@ -59,6 +58,17 @@ A mandatory configuration object specifying the dependencies to be installed int
     "l2_buttons": "^1.6.1",
     "l2_grid": "^1.19.0"
 },
+```
+---
+
+## Opus UI Peer Dependencies
+
+An optional configuration object specifying any peer dependencies to be installed into your project. This could include any Opus UI component libraries and any Opus UI ensembles.
+
+```json
+"peerDependencies": {
+     "@intenda/opus-ui-drag-move": "1.2.1"
+}
 ```
 ---
 
@@ -174,7 +184,7 @@ An external Opus UI Configuration file which takes precedence over all other way
 
 ### Important notes
 
-- The language server is built to automatically rebuild when it detects a change to either "dependencies", "opusUiComponentLibraries" or "opusUiEnsembles"
+- The language server is built to automatically rebuild when it detects a change to either "dependencies", "peerDependencies", "opusUiComponentLibraries" or "opusUiEnsembles"
 - The language server expects each entry included in "opusUiComponentLibraries" and "opusUiEnsembles" (except for external ensemble entries) to be installed using "npm install" so it can find the associated dependency inside of node_modules. If the language server cannot find the dependency, it will be ignored and features such as suggestions, linting, etc. for the associated components will not be shown
 
 ---

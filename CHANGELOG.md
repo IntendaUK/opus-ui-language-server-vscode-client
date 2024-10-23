@@ -2,6 +2,9 @@
 
 All notable changes to the "Opus UI Language Server" extension will be documented in this file.
 
+### 3.1.0
+* Added support for peerDependencies in package.json.
+
 ### 3.0.0
 * Upgraded to support opus-ui v1.10.3.
 
