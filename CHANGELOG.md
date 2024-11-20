@@ -2,6 +2,9 @@
 
 All notable changes to the "Opus UI Language Server" extension will be documented in this file.
 
+### 3.1.1
+* Fixed an issue where the language server would build nodes from node_modules folders inside ensembles.
+
 ### 3.1.0
 * Added support for peerDependencies in package.json.
 
